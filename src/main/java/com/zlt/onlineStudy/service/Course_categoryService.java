@@ -1,10 +1,8 @@
-package com.zlt.onlineStudy.mapper;
+package com.zlt.onlineStudy.service;
 
 import com.zlt.onlineStudy.po.Course_category;
-import org.apache.ibatis.annotations.Mapper;
 
-@Mapper
-public interface Course_categoryMapper {
+public interface Course_categoryService {
     int deleteByPrimaryKey(Integer id);
 
     int insert(Course_category record);

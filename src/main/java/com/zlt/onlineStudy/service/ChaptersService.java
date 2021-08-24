@@ -1,12 +1,9 @@
-package com.zlt.onlineStudy.mapper;
+package com.zlt.onlineStudy.service;
 
 import com.zlt.onlineStudy.po.Chapters;
-import org.apache.ibatis.annotations.Mapper;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
-@Mapper
-public interface ChaptersMapper {
+public interface ChaptersService {
+
     int deleteByPrimaryKey(Integer id);
 
     int insert(Chapters record);

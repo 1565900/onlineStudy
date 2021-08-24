@@ -1,10 +1,8 @@
-package com.zlt.onlineStudy.mapper;
+package com.zlt.onlineStudy.service;
 
 import com.zlt.onlineStudy.po.Comment;
-import org.apache.ibatis.annotations.Mapper;
 
-@Mapper
-public interface CommentMapper {
+public interface CommentService {
     int deleteByPrimaryKey(Integer id);
 
     int insert(Comment record);

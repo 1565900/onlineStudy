@@ -1,10 +1,10 @@
-package com.zlt.onlineStudy.mapper;
+package com.zlt.onlineStudy.service;
 
 import com.zlt.onlineStudy.po.Course;
-import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Service;
 
-@Mapper
-public interface CourseMapper {
+
+public interface CourseService {
     int deleteByPrimaryKey(Integer id);
 
     int insert(Course record);

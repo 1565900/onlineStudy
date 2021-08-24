@@ -1,7 +1,8 @@
 package com.zlt.onlineStudy.po;
 
-import java.util.Date;
+import org.springframework.format.annotation.DateTimeFormat;
 
+import java.util.Date;
 public class Comment {
     private Integer id;
 
@@ -11,6 +12,7 @@ public class Comment {
 
     private Integer courseId;
 
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date createtime;
 
     private Integer state;
