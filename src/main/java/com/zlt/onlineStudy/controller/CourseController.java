@@ -1,10 +1,14 @@
 package com.zlt.onlineStudy.controller;
 import com.zlt.onlineStudy.po.Course;
 import com.zlt.onlineStudy.service.CourseService;
+import org.apache.ibatis.annotations.Select;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
 @RestController
-@RequestMapping("/Course_category")
+@RequestMapping("/Course")
 @CrossOrigin
 public class CourseController {
 
@@ -34,4 +38,8 @@ public class CourseController {
     public int updateByPrimaryKey(Course record){
         return courseService.updateByPrimaryKey(record);
     }
+    @GetMapping("/findAllCourse")
+    public List<Course> findAllCourse(){
+        return courseService.findAllCourse();
+    };
 }

@@ -3,6 +3,8 @@ package com.zlt.onlineStudy.mapper;
 import com.zlt.onlineStudy.po.Course_category;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.List;
+
 @Mapper
 public interface Course_categoryMapper {
     int deleteByPrimaryKey(Integer id);
@@ -16,4 +18,6 @@ public interface Course_categoryMapper {
     int updateByPrimaryKeySelective(Course_category record);
 
     int updateByPrimaryKey(Course_category record);
+
+    List<Course_category> findAllCourse_category();
 }

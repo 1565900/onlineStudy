@@ -5,6 +5,8 @@ import org.apache.ibatis.annotations.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Mapper
 public interface ChaptersMapper {
     int deleteByPrimaryKey(Integer id);
@@ -18,4 +20,6 @@ public interface ChaptersMapper {
     int updateByPrimaryKeySelective(Chapters record);
 
     int updateByPrimaryKey(Chapters record);
+
+    List<Chapters> findAllChapters();
 }

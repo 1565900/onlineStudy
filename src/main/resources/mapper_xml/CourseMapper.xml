@@ -161,4 +161,7 @@
       img = #{img,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
+  <select id="findAllCourse" resultMap="BaseResultMap">
+    SELECT * FROM course where state!=0
+  </select>
 </mapper>

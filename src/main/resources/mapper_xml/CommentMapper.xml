@@ -103,4 +103,7 @@
       state = #{state,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
+  <select id="findAllComment" resultMap="BaseResultMap">
+ select * from comment where state!=0
+</select>
 </mapper>

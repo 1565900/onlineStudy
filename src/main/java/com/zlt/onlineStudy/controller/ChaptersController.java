@@ -8,6 +8,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/Chapters")
 @CrossOrigin
@@ -43,6 +45,10 @@ public class ChaptersController {
     @PutMapping("/updateByPrimaryKey")//当实体某属性为空是，则将对应列置空；
     public int updateByPrimaryKey(Chapters record){
         return chaptersService.updateByPrimaryKey(record);
+    };
+    @GetMapping("/findAllChapters")
+    public List<Chapters> findAllChapters(){
+        return chaptersService.findAllChapters();
     };
 
 }

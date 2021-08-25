@@ -11,6 +11,7 @@ public class User_course {
 
     private Integer leaCha;
 
+
     public Integer getUserId() {
         return userId;
     }

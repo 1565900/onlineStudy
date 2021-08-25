@@ -3,6 +3,8 @@ package com.zlt.onlineStudy.service;
 import com.zlt.onlineStudy.po.Course;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 
 public interface CourseService {
     int deleteByPrimaryKey(Integer id);
@@ -16,4 +18,6 @@ public interface CourseService {
     int updateByPrimaryKeySelective(Course record);
 
     int updateByPrimaryKey(Course record);
+
+    List<Course> findAllCourse();
 }

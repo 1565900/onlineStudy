@@ -6,6 +6,7 @@ import com.zlt.onlineStudy.service.ChaptersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
+import java.util.List;
 
 @Service
 public class ChaptersServiceImpl implements ChaptersService {
@@ -37,4 +38,8 @@ public class ChaptersServiceImpl implements ChaptersService {
 
        return  chaptersMapper.updateByPrimaryKey(record);
     };
+
+   public List<Chapters> findAllChapters(){
+       return chaptersMapper.findAllChapters();
+   };
 }

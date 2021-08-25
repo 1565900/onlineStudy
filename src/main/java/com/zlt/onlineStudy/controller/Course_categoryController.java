@@ -7,6 +7,9 @@ import com.zlt.onlineStudy.service.Course_categoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
 @RestController
 @RequestMapping("/Course_category")
 @CrossOrigin
@@ -36,4 +39,9 @@ public class Course_categoryController {
     @PutMapping("/updateByPrimaryKey")
     public int updateByPrimaryKey(Course_category record){
         return course_categoryService.updateByPrimaryKey(record);
-}}
+}
+    @GetMapping("findAllCourse_category")
+    public List<Course_category> findAllCourse_category(){
+    return course_categoryService.findAllCourse_category();
+    }
+}

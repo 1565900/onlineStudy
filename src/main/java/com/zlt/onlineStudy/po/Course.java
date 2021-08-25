@@ -113,4 +113,21 @@ public class Course {
     public void setImg(String img) {
         this.img = img == null ? null : img.trim();
     }
+
+    @Override
+    public String toString() {
+        return "Course{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", categoryId=" + categoryId +
+                ", state=" + state +
+                ", introduce='" + introduce + '\'' +
+                ", teacher='" + teacher + '\'' +
+                ", chargingmode='" + chargingmode + '\'' +
+                ", price=" + price +
+                ", createtime=" + createtime +
+                ", endtime=" + endtime +
+                ", img='" + img + '\'' +
+                '}';
+    }
 }

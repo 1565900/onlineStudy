@@ -50,4 +50,15 @@ public class Chapters {
     public void setCount(Integer count) {
         this.count = count;
     }
+
+    @Override
+    public String toString() {
+        return "Chapters{" +
+                "id=" + id +
+                ", courseId=" + courseId +
+                ", name='" + name + '\'' +
+                ", content='" + content + '\'' +
+                ", count=" + count +
+                '}';
+    }
 }

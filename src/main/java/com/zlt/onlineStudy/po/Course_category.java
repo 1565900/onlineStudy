@@ -40,4 +40,14 @@ public class Course_category {
     public void setState(Integer state) {
         this.state = state;
     }
+
+    @Override
+    public String toString() {
+        return "Course_category{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", pid=" + pid +
+                ", state=" + state +
+                '}';
+    }
 }

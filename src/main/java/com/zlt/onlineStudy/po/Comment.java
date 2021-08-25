@@ -64,4 +64,16 @@ public class Comment {
     public void setState(Integer state) {
         this.state = state;
     }
+
+    @Override
+    public String toString() {
+        return "Comment{" +
+                "id=" + id +
+                ", content='" + content + '\'' +
+                ", userId=" + userId +
+                ", courseId=" + courseId +
+                ", createtime=" + createtime +
+                ", state=" + state +
+                '}';
+    }
 }

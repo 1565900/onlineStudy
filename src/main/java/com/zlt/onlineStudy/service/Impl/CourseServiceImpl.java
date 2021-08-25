@@ -7,6 +7,7 @@ import com.zlt.onlineStudy.service.CourseService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @Service
 public class CourseServiceImpl implements CourseService {
@@ -37,5 +38,9 @@ public class CourseServiceImpl implements CourseService {
 
     public int updateByPrimaryKey(Course record){
         return courseMapper.updateByPrimaryKey(record);
+    };
+
+    public List<Course> findAllCourse(){
+        return courseMapper.findAllCourse();
     };
 }

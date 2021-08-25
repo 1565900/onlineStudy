@@ -1,6 +1,9 @@
 package com.zlt.onlineStudy.service;
 
 import com.zlt.onlineStudy.po.Chapters;
+import com.zlt.onlineStudy.po.Comment;
+
+import java.util.List;
 
 public interface ChaptersService {
 
@@ -15,4 +18,6 @@ public interface ChaptersService {
     int updateByPrimaryKeySelective(Chapters record);
 
     int updateByPrimaryKey(Chapters record);
+
+    List<Chapters> findAllChapters();
 }

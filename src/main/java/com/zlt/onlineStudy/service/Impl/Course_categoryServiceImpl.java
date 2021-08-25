@@ -7,6 +7,7 @@ import com.zlt.onlineStudy.service.Course_categoryService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @Service
 public class Course_categoryServiceImpl implements Course_categoryService {
@@ -37,5 +38,9 @@ private Course_categoryMapper course_categoryMapper;
 
     public int updateByPrimaryKey(Course_category record){
         return course_categoryMapper.updateByPrimaryKey(record);
+    };
+
+    public List<Course_category> findAllCourse_category(){
+        return course_categoryMapper.findAllCourse_category();
     };
 }

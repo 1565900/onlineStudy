@@ -6,6 +6,8 @@ import com.zlt.onlineStudy.service.CommentService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
+
 @Service
 public class CommentServiceImpl implements CommentService {
 
@@ -26,4 +28,8 @@ public class CommentServiceImpl implements CommentService {
     public int updateByPrimaryKeySelective(Comment record){return commentMapper.updateByPrimaryKeySelective(record);};
 
     public int updateByPrimaryKey(Comment record){return commentMapper.updateByPrimaryKey(record);};
+
+    public List<Comment> findAllComment(){
+        return commentMapper.findAllComment();
+    };
 }

@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/Comment")
 @CrossOrigin
@@ -35,5 +37,9 @@ public class CommentController {
     @PutMapping("/updateByPrimaryKey")
     public int updateByPrimaryKey(Comment record){
         return commentService.updateByPrimaryKey(record);
+    };
+    @GetMapping("/findAllComment")
+    public List<Comment> findAllComment(){
+        return commentService.findAllComment();
     };
 }

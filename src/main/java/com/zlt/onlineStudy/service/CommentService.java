@@ -2,6 +2,8 @@ package com.zlt.onlineStudy.service;
 
 import com.zlt.onlineStudy.po.Comment;
 
+import java.util.List;
+
 public interface CommentService {
     int deleteByPrimaryKey(Integer id);
 
@@ -14,4 +16,6 @@ public interface CommentService {
     int updateByPrimaryKeySelective(Comment record);
 
     int updateByPrimaryKey(Comment record);
+
+    List<Comment> findAllComment();
 }
