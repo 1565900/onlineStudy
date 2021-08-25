@@ -1,0 +1,620 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zlt.onlineStudy.mapper.SinglequestionsMapper">
+  <resultMap id="BaseResultMap" type="com.zlt.onlineStudy.po.Singlequestions">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="major" jdbcType="VARCHAR" property="major" />
+    <result column="grade" jdbcType="VARCHAR" property="grade" />
+    <result column="subject" jdbcType="VARCHAR" property="subject" />
+    <result column="ansA" jdbcType="VARCHAR" property="ansa" />
+    <result column="ansB" jdbcType="VARCHAR" property="ansb" />
+    <result column="ansC" jdbcType="VARCHAR" property="ansc" />
+    <result column="ansD" jdbcType="VARCHAR" property="ansd" />
+    <result column="trueANS" jdbcType="VARCHAR" property="trueans" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.zlt.onlineStudy.po.Singlequestions">
+    <result column="question" jdbcType="LONGVARCHAR" property="question" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, major, grade, subject, ansA, ansB, ansC, ansD, trueANS
+  </sql>
+  <sql id="Blob_Column_List">
+    question
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from singlequestions
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from singlequestions
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.zlt.onlineStudy.po.Singlequestions">
+    insert into singlequestions (id, major, grade, 
+      subject, ansA, ansB, 
+      ansC, ansD, trueANS, 
+      question)
+    values (#{id,jdbcType=INTEGER}, #{major,jdbcType=VARCHAR}, #{grade,jdbcType=VARCHAR}, 
+      #{subject,jdbcType=VARCHAR}, #{ansa,jdbcType=VARCHAR}, #{ansb,jdbcType=VARCHAR}, 
+      #{ansc,jdbcType=VARCHAR}, #{ansd,jdbcType=VARCHAR}, #{trueans,jdbcType=VARCHAR}, 
+      #{question,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zlt.onlineStudy.po.Singlequestions">
+    insert into singlequestions
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="major != null">
+        major,
+      </if>
+      <if test="grade != null">
+        grade,
+      </if>
+      <if test="subject != null">
+        subject,
+      </if>
+      <if test="ansa != null">
+        ansA,
+      </if>
+      <if test="ansb != null">
+        ansB,
+      </if>
+      <if test="ansc != null">
+        ansC,
+      </if>
+      <if test="ansd != null">
+        ansD,
+      </if>
+      <if test="trueans != null">
+        trueANS,
+      </if>
+      <if test="question != null">
+        question,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="major != null">
+        #{major,jdbcType=VARCHAR},
+      </if>
+      <if test="grade != null">
+        #{grade,jdbcType=VARCHAR},
+      </if>
+      <if test="subject != null">
+        #{subject,jdbcType=VARCHAR},
+      </if>
+      <if test="ansa != null">
+        #{ansa,jdbcType=VARCHAR},
+      </if>
+      <if test="ansb != null">
+        #{ansb,jdbcType=VARCHAR},
+      </if>
+      <if test="ansc != null">
+        #{ansc,jdbcType=VARCHAR},
+      </if>
+      <if test="ansd != null">
+        #{ansd,jdbcType=VARCHAR},
+      </if>
+      <if test="trueans != null">
+        #{trueans,jdbcType=VARCHAR},
+      </if>
+      <if test="question != null">
+        #{question,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zlt.onlineStudy.po.Singlequestions">
+    update singlequestions
+    <set>
+      <if test="major != null">
+        major = #{major,jdbcType=VARCHAR},
+      </if>
+      <if test="grade != null">
+        grade = #{grade,jdbcType=VARCHAR},
+      </if>
+      <if test="subject != null">
+        subject = #{subject,jdbcType=VARCHAR},
+      </if>
+      <if test="ansa != null">
+        ansA = #{ansa,jdbcType=VARCHAR},
+      </if>
+      <if test="ansb != null">
+        ansB = #{ansb,jdbcType=VARCHAR},
+      </if>
+      <if test="ansc != null">
+        ansC = #{ansc,jdbcType=VARCHAR},
+      </if>
+      <if test="ansd != null">
+        ansD = #{ansd,jdbcType=VARCHAR},
+      </if>
+      <if test="trueans != null">
+        trueANS = #{trueans,jdbcType=VARCHAR},
+      </if>
+      <if test="question != null">
+        question = #{question,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.zlt.onlineStudy.po.Singlequestions">
+    update singlequestions
+    set major = #{major,jdbcType=VARCHAR},
+      grade = #{grade,jdbcType=VARCHAR},
+      subject = #{subject,jdbcType=VARCHAR},
+      ansA = #{ansa,jdbcType=VARCHAR},
+      ansB = #{ansb,jdbcType=VARCHAR},
+      ansC = #{ansc,jdbcType=VARCHAR},
+      ansD = #{ansd,jdbcType=VARCHAR},
+      trueANS = #{trueans,jdbcType=VARCHAR},
+      question = #{question,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zlt.onlineStudy.po.Singlequestions">
+    update singlequestions
+    set major = #{major,jdbcType=VARCHAR},
+      grade = #{grade,jdbcType=VARCHAR},
+      subject = #{subject,jdbcType=VARCHAR},
+      ansA = #{ansa,jdbcType=VARCHAR},
+      ansB = #{ansb,jdbcType=VARCHAR},
+      ansC = #{ansc,jdbcType=VARCHAR},
+      ansD = #{ansd,jdbcType=VARCHAR},
+      trueANS = #{trueans,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.zlt.onlineStudy.po.Singlequestions">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="course_id" jdbcType="INTEGER" property="courseId" />
+    <result column="ansA" jdbcType="VARCHAR" property="ansa" />
+    <result column="ansB" jdbcType="VARCHAR" property="ansb" />
+    <result column="ansC" jdbcType="VARCHAR" property="ansc" />
+    <result column="ansD" jdbcType="VARCHAR" property="ansd" />
+    <result column="trueANS" jdbcType="VARCHAR" property="trueans" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.zlt.onlineStudy.po.Singlequestions">
+    <result column="question" jdbcType="LONGVARCHAR" property="question" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, course_id, ansA, ansB, ansC, ansD, trueANS
+  </sql>
+  <sql id="Blob_Column_List">
+    question
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from singlequestions
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from singlequestions
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.zlt.onlineStudy.po.Singlequestions">
+    insert into singlequestions (id, course_id, ansA, 
+      ansB, ansC, ansD, trueANS, 
+      question)
+    values (#{id,jdbcType=INTEGER}, #{courseId,jdbcType=INTEGER}, #{ansa,jdbcType=VARCHAR}, 
+      #{ansb,jdbcType=VARCHAR}, #{ansc,jdbcType=VARCHAR}, #{ansd,jdbcType=VARCHAR}, #{trueans,jdbcType=VARCHAR}, 
+      #{question,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zlt.onlineStudy.po.Singlequestions">
+    insert into singlequestions
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="courseId != null">
+        course_id,
+      </if>
+      <if test="ansa != null">
+        ansA,
+      </if>
+      <if test="ansb != null">
+        ansB,
+      </if>
+      <if test="ansc != null">
+        ansC,
+      </if>
+      <if test="ansd != null">
+        ansD,
+      </if>
+      <if test="trueans != null">
+        trueANS,
+      </if>
+      <if test="question != null">
+        question,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="courseId != null">
+        #{courseId,jdbcType=INTEGER},
+      </if>
+      <if test="ansa != null">
+        #{ansa,jdbcType=VARCHAR},
+      </if>
+      <if test="ansb != null">
+        #{ansb,jdbcType=VARCHAR},
+      </if>
+      <if test="ansc != null">
+        #{ansc,jdbcType=VARCHAR},
+      </if>
+      <if test="ansd != null">
+        #{ansd,jdbcType=VARCHAR},
+      </if>
+      <if test="trueans != null">
+        #{trueans,jdbcType=VARCHAR},
+      </if>
+      <if test="question != null">
+        #{question,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zlt.onlineStudy.po.Singlequestions">
+    update singlequestions
+    <set>
+      <if test="courseId != null">
+        course_id = #{courseId,jdbcType=INTEGER},
+      </if>
+      <if test="ansa != null">
+        ansA = #{ansa,jdbcType=VARCHAR},
+      </if>
+      <if test="ansb != null">
+        ansB = #{ansb,jdbcType=VARCHAR},
+      </if>
+      <if test="ansc != null">
+        ansC = #{ansc,jdbcType=VARCHAR},
+      </if>
+      <if test="ansd != null">
+        ansD = #{ansd,jdbcType=VARCHAR},
+      </if>
+      <if test="trueans != null">
+        trueANS = #{trueans,jdbcType=VARCHAR},
+      </if>
+      <if test="question != null">
+        question = #{question,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.zlt.onlineStudy.po.Singlequestions">
+    update singlequestions
+    set course_id = #{courseId,jdbcType=INTEGER},
+      ansA = #{ansa,jdbcType=VARCHAR},
+      ansB = #{ansb,jdbcType=VARCHAR},
+      ansC = #{ansc,jdbcType=VARCHAR},
+      ansD = #{ansd,jdbcType=VARCHAR},
+      trueANS = #{trueans,jdbcType=VARCHAR},
+      question = #{question,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zlt.onlineStudy.po.Singlequestions">
+    update singlequestions
+    set course_id = #{courseId,jdbcType=INTEGER},
+      ansA = #{ansa,jdbcType=VARCHAR},
+      ansB = #{ansb,jdbcType=VARCHAR},
+      ansC = #{ansc,jdbcType=VARCHAR},
+      ansD = #{ansd,jdbcType=VARCHAR},
+      trueANS = #{trueans,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.zlt.onlineStudy.po.Singlequestions">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="major" jdbcType="VARCHAR" property="major" />
+    <result column="grade" jdbcType="VARCHAR" property="grade" />
+    <result column="subject" jdbcType="VARCHAR" property="subject" />
+    <result column="ansA" jdbcType="VARCHAR" property="ansa" />
+    <result column="ansB" jdbcType="VARCHAR" property="ansb" />
+    <result column="ansC" jdbcType="VARCHAR" property="ansc" />
+    <result column="ansD" jdbcType="VARCHAR" property="ansd" />
+    <result column="trueANS" jdbcType="VARCHAR" property="trueans" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.zlt.onlineStudy.po.Singlequestions">
+    <result column="question" jdbcType="LONGVARCHAR" property="question" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, major, grade, subject, ansA, ansB, ansC, ansD, trueANS
+  </sql>
+  <sql id="Blob_Column_List">
+    question
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from singlequestions
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from singlequestions
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.zlt.onlineStudy.po.Singlequestions">
+    insert into singlequestions (id, major, grade, 
+      subject, ansA, ansB, 
+      ansC, ansD, trueANS, 
+      question)
+    values (#{id,jdbcType=INTEGER}, #{major,jdbcType=VARCHAR}, #{grade,jdbcType=VARCHAR}, 
+      #{subject,jdbcType=VARCHAR}, #{ansa,jdbcType=VARCHAR}, #{ansb,jdbcType=VARCHAR}, 
+      #{ansc,jdbcType=VARCHAR}, #{ansd,jdbcType=VARCHAR}, #{trueans,jdbcType=VARCHAR}, 
+      #{question,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zlt.onlineStudy.po.Singlequestions">
+    insert into singlequestions
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="major != null">
+        major,
+      </if>
+      <if test="grade != null">
+        grade,
+      </if>
+      <if test="subject != null">
+        subject,
+      </if>
+      <if test="ansa != null">
+        ansA,
+      </if>
+      <if test="ansb != null">
+        ansB,
+      </if>
+      <if test="ansc != null">
+        ansC,
+      </if>
+      <if test="ansd != null">
+        ansD,
+      </if>
+      <if test="trueans != null">
+        trueANS,
+      </if>
+      <if test="question != null">
+        question,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="major != null">
+        #{major,jdbcType=VARCHAR},
+      </if>
+      <if test="grade != null">
+        #{grade,jdbcType=VARCHAR},
+      </if>
+      <if test="subject != null">
+        #{subject,jdbcType=VARCHAR},
+      </if>
+      <if test="ansa != null">
+        #{ansa,jdbcType=VARCHAR},
+      </if>
+      <if test="ansb != null">
+        #{ansb,jdbcType=VARCHAR},
+      </if>
+      <if test="ansc != null">
+        #{ansc,jdbcType=VARCHAR},
+      </if>
+      <if test="ansd != null">
+        #{ansd,jdbcType=VARCHAR},
+      </if>
+      <if test="trueans != null">
+        #{trueans,jdbcType=VARCHAR},
+      </if>
+      <if test="question != null">
+        #{question,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zlt.onlineStudy.po.Singlequestions">
+    update singlequestions
+    <set>
+      <if test="major != null">
+        major = #{major,jdbcType=VARCHAR},
+      </if>
+      <if test="grade != null">
+        grade = #{grade,jdbcType=VARCHAR},
+      </if>
+      <if test="subject != null">
+        subject = #{subject,jdbcType=VARCHAR},
+      </if>
+      <if test="ansa != null">
+        ansA = #{ansa,jdbcType=VARCHAR},
+      </if>
+      <if test="ansb != null">
+        ansB = #{ansb,jdbcType=VARCHAR},
+      </if>
+      <if test="ansc != null">
+        ansC = #{ansc,jdbcType=VARCHAR},
+      </if>
+      <if test="ansd != null">
+        ansD = #{ansd,jdbcType=VARCHAR},
+      </if>
+      <if test="trueans != null">
+        trueANS = #{trueans,jdbcType=VARCHAR},
+      </if>
+      <if test="question != null">
+        question = #{question,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.zlt.onlineStudy.po.Singlequestions">
+    update singlequestions
+    set major = #{major,jdbcType=VARCHAR},
+      grade = #{grade,jdbcType=VARCHAR},
+      subject = #{subject,jdbcType=VARCHAR},
+      ansA = #{ansa,jdbcType=VARCHAR},
+      ansB = #{ansb,jdbcType=VARCHAR},
+      ansC = #{ansc,jdbcType=VARCHAR},
+      ansD = #{ansd,jdbcType=VARCHAR},
+      trueANS = #{trueans,jdbcType=VARCHAR},
+      question = #{question,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zlt.onlineStudy.po.Singlequestions">
+    update singlequestions
+    set major = #{major,jdbcType=VARCHAR},
+      grade = #{grade,jdbcType=VARCHAR},
+      subject = #{subject,jdbcType=VARCHAR},
+      ansA = #{ansa,jdbcType=VARCHAR},
+      ansB = #{ansb,jdbcType=VARCHAR},
+      ansC = #{ansc,jdbcType=VARCHAR},
+      ansD = #{ansd,jdbcType=VARCHAR},
+      trueANS = #{trueans,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.zlt.onlineStudy.po.Singlequestions">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="course_id" jdbcType="INTEGER" property="courseId" />
+    <result column="ansA" jdbcType="VARCHAR" property="ansa" />
+    <result column="ansB" jdbcType="VARCHAR" property="ansb" />
+    <result column="ansC" jdbcType="VARCHAR" property="ansc" />
+    <result column="ansD" jdbcType="VARCHAR" property="ansd" />
+    <result column="trueANS" jdbcType="VARCHAR" property="trueans" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.zlt.onlineStudy.po.Singlequestions">
+    <result column="question" jdbcType="LONGVARCHAR" property="question" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, course_id, ansA, ansB, ansC, ansD, trueANS
+  </sql>
+  <sql id="Blob_Column_List">
+    question
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from singlequestions
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from singlequestions
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.zlt.onlineStudy.po.Singlequestions">
+    insert into singlequestions (id, course_id, ansA, 
+      ansB, ansC, ansD, trueANS, 
+      question)
+    values (#{id,jdbcType=INTEGER}, #{courseId,jdbcType=INTEGER}, #{ansa,jdbcType=VARCHAR}, 
+      #{ansb,jdbcType=VARCHAR}, #{ansc,jdbcType=VARCHAR}, #{ansd,jdbcType=VARCHAR}, #{trueans,jdbcType=VARCHAR}, 
+      #{question,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zlt.onlineStudy.po.Singlequestions">
+    insert into singlequestions
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="courseId != null">
+        course_id,
+      </if>
+      <if test="ansa != null">
+        ansA,
+      </if>
+      <if test="ansb != null">
+        ansB,
+      </if>
+      <if test="ansc != null">
+        ansC,
+      </if>
+      <if test="ansd != null">
+        ansD,
+      </if>
+      <if test="trueans != null">
+        trueANS,
+      </if>
+      <if test="question != null">
+        question,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="courseId != null">
+        #{courseId,jdbcType=INTEGER},
+      </if>
+      <if test="ansa != null">
+        #{ansa,jdbcType=VARCHAR},
+      </if>
+      <if test="ansb != null">
+        #{ansb,jdbcType=VARCHAR},
+      </if>
+      <if test="ansc != null">
+        #{ansc,jdbcType=VARCHAR},
+      </if>
+      <if test="ansd != null">
+        #{ansd,jdbcType=VARCHAR},
+      </if>
+      <if test="trueans != null">
+        #{trueans,jdbcType=VARCHAR},
+      </if>
+      <if test="question != null">
+        #{question,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zlt.onlineStudy.po.Singlequestions">
+    update singlequestions
+    <set>
+      <if test="courseId != null">
+        course_id = #{courseId,jdbcType=INTEGER},
+      </if>
+      <if test="ansa != null">
+        ansA = #{ansa,jdbcType=VARCHAR},
+      </if>
+      <if test="ansb != null">
+        ansB = #{ansb,jdbcType=VARCHAR},
+      </if>
+      <if test="ansc != null">
+        ansC = #{ansc,jdbcType=VARCHAR},
+      </if>
+      <if test="ansd != null">
+        ansD = #{ansd,jdbcType=VARCHAR},
+      </if>
+      <if test="trueans != null">
+        trueANS = #{trueans,jdbcType=VARCHAR},
+      </if>
+      <if test="question != null">
+        question = #{question,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.zlt.onlineStudy.po.Singlequestions">
+    update singlequestions
+    set course_id = #{courseId,jdbcType=INTEGER},
+      ansA = #{ansa,jdbcType=VARCHAR},
+      ansB = #{ansb,jdbcType=VARCHAR},
+      ansC = #{ansc,jdbcType=VARCHAR},
+      ansD = #{ansd,jdbcType=VARCHAR},
+      trueANS = #{trueans,jdbcType=VARCHAR},
+      question = #{question,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zlt.onlineStudy.po.Singlequestions">
+    update singlequestions
+    set course_id = #{courseId,jdbcType=INTEGER},
+      ansA = #{ansa,jdbcType=VARCHAR},
+      ansB = #{ansb,jdbcType=VARCHAR},
+      ansC = #{ansc,jdbcType=VARCHAR},
+      ansD = #{ansd,jdbcType=VARCHAR},
+      trueANS = #{trueans,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

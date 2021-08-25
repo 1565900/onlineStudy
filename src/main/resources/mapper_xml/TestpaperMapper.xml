@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zlt.onlineStudy.mapper.TestpaperMapper">
+  <resultMap id="BaseResultMap" type="com.zlt.onlineStudy.po.Testpaper">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="course_id" jdbcType="INTEGER" property="courseId" />
+    <result column="exam_id" jdbcType="INTEGER" property="examId" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="score" jdbcType="VARCHAR" property="score" />
+    <result column="appeal_info" jdbcType="VARCHAR" property="appealInfo" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, course_id, exam_id, user_id, score, appeal_info
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from testpaper
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from testpaper
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.zlt.onlineStudy.po.Testpaper">
+    insert into testpaper (id, course_id, exam_id, 
+      user_id, score, appeal_info
+      )
+    values (#{id,jdbcType=INTEGER}, #{courseId,jdbcType=INTEGER}, #{examId,jdbcType=INTEGER}, 
+      #{userId,jdbcType=INTEGER}, #{score,jdbcType=VARCHAR}, #{appealInfo,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.zlt.onlineStudy.po.Testpaper">
+    insert into testpaper
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="courseId != null">
+        course_id,
+      </if>
+      <if test="examId != null">
+        exam_id,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="score != null">
+        score,
+      </if>
+      <if test="appealInfo != null">
+        appeal_info,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="courseId != null">
+        #{courseId,jdbcType=INTEGER},
+      </if>
+      <if test="examId != null">
+        #{examId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="score != null">
+        #{score,jdbcType=VARCHAR},
+      </if>
+      <if test="appealInfo != null">
+        #{appealInfo,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zlt.onlineStudy.po.Testpaper">
+    update testpaper
+    <set>
+      <if test="courseId != null">
+        course_id = #{courseId,jdbcType=INTEGER},
+      </if>
+      <if test="examId != null">
+        exam_id = #{examId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="score != null">
+        score = #{score,jdbcType=VARCHAR},
+      </if>
+      <if test="appealInfo != null">
+        appeal_info = #{appealInfo,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zlt.onlineStudy.po.Testpaper">
+    update testpaper
+    set course_id = #{courseId,jdbcType=INTEGER},
+      exam_id = #{examId,jdbcType=INTEGER},
+      user_id = #{userId,jdbcType=INTEGER},
+      score = #{score,jdbcType=VARCHAR},
+      appeal_info = #{appealInfo,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.zlt.onlineStudy.po.Testpaper">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="course_id" jdbcType="INTEGER" property="courseId" />
+    <result column="exam_id" jdbcType="INTEGER" property="examId" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="score" jdbcType="VARCHAR" property="score" />
+    <result column="appeal_info" jdbcType="VARCHAR" property="appealInfo" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, course_id, exam_id, user_id, score, appeal_info
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from testpaper
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from testpaper
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.zlt.onlineStudy.po.Testpaper">
+    insert into testpaper (id, course_id, exam_id, 
+      user_id, score, appeal_info
+      )
+    values (#{id,jdbcType=INTEGER}, #{courseId,jdbcType=INTEGER}, #{examId,jdbcType=INTEGER}, 
+      #{userId,jdbcType=INTEGER}, #{score,jdbcType=VARCHAR}, #{appealInfo,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.zlt.onlineStudy.po.Testpaper">
+    insert into testpaper
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="courseId != null">
+        course_id,
+      </if>
+      <if test="examId != null">
+        exam_id,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="score != null">
+        score,
+      </if>
+      <if test="appealInfo != null">
+        appeal_info,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="courseId != null">
+        #{courseId,jdbcType=INTEGER},
+      </if>
+      <if test="examId != null">
+        #{examId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="score != null">
+        #{score,jdbcType=VARCHAR},
+      </if>
+      <if test="appealInfo != null">
+        #{appealInfo,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zlt.onlineStudy.po.Testpaper">
+    update testpaper
+    <set>
+      <if test="courseId != null">
+        course_id = #{courseId,jdbcType=INTEGER},
+      </if>
+      <if test="examId != null">
+        exam_id = #{examId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="score != null">
+        score = #{score,jdbcType=VARCHAR},
+      </if>
+      <if test="appealInfo != null">
+        appeal_info = #{appealInfo,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zlt.onlineStudy.po.Testpaper">
+    update testpaper
+    set course_id = #{courseId,jdbcType=INTEGER},
+      exam_id = #{examId,jdbcType=INTEGER},
+      user_id = #{userId,jdbcType=INTEGER},
+      score = #{score,jdbcType=VARCHAR},
+      appeal_info = #{appealInfo,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

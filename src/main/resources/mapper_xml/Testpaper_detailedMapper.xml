@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zlt.onlineStudy.mapper.Testpaper_detailedMapper">
+  <resultMap id="BaseResultMap" type="com.zlt.onlineStudy.po.Testpaper_detailed">
+    <result column="testpaper_id" jdbcType="INTEGER" property="testpaperId" />
+    <result column="ques_id" jdbcType="INTEGER" property="quesId" />
+    <result column="ture_ans" jdbcType="VARCHAR" property="tureAns" />
+    <result column="user_ans" jdbcType="VARCHAR" property="userAns" />
+  </resultMap>
+  <insert id="insert" parameterType="com.zlt.onlineStudy.po.Testpaper_detailed">
+    insert into testpaper_detailed (testpaper_id, ques_id, ture_ans, 
+      user_ans)
+    values (#{testpaperId,jdbcType=INTEGER}, #{quesId,jdbcType=INTEGER}, #{tureAns,jdbcType=VARCHAR}, 
+      #{userAns,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zlt.onlineStudy.po.Testpaper_detailed">
+    insert into testpaper_detailed
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="testpaperId != null">
+        testpaper_id,
+      </if>
+      <if test="quesId != null">
+        ques_id,
+      </if>
+      <if test="tureAns != null">
+        ture_ans,
+      </if>
+      <if test="userAns != null">
+        user_ans,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="testpaperId != null">
+        #{testpaperId,jdbcType=INTEGER},
+      </if>
+      <if test="quesId != null">
+        #{quesId,jdbcType=INTEGER},
+      </if>
+      <if test="tureAns != null">
+        #{tureAns,jdbcType=VARCHAR},
+      </if>
+      <if test="userAns != null">
+        #{userAns,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>
