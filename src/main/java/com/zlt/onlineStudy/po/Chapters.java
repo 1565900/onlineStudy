@@ -1,5 +1,7 @@
 package com.zlt.onlineStudy.po;
 
+import java.util.List;
+
 public class Chapters {
     private Integer id;
 
@@ -10,6 +12,7 @@ public class Chapters {
     private String content;
 
     private Integer count;
+
 
     public Integer getId() {
         return id;

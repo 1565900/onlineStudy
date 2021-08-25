@@ -23,6 +23,7 @@ public class User {
 
     private Integer state;
 
+
     public Integer getId() {
         return id;
     }

@@ -2,7 +2,7 @@ package com.zlt.onlineStudy.service.Impl;
 
 import com.zlt.onlineStudy.mapper.CourseMapper;
 import com.zlt.onlineStudy.po.Course;
-import com.zlt.onlineStudy.po.Course_category;
+import com.zlt.onlineStudy.po.User_course;
 import com.zlt.onlineStudy.service.CourseService;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +13,7 @@ import java.util.List;
 public class CourseServiceImpl implements CourseService {
     @Resource
     private CourseMapper courseMapper;
+
     public int deleteByPrimaryKey(Integer id){
         Course course =new Course();
         course.setId(id);
@@ -42,5 +43,9 @@ public class CourseServiceImpl implements CourseService {
 
     public List<Course> findAllCourse(){
         return courseMapper.findAllCourse();
+    };
+
+    public List<Course> findCourseByUserId(int id){
+        return courseMapper.findCourseByUserId(id);
     };
 }

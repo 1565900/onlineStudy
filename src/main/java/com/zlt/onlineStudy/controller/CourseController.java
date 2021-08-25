@@ -1,5 +1,6 @@
 package com.zlt.onlineStudy.controller;
 import com.zlt.onlineStudy.po.Course;
+import com.zlt.onlineStudy.po.User_course;
 import com.zlt.onlineStudy.service.CourseService;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,5 +42,9 @@ public class CourseController {
     @GetMapping("/findAllCourse")
     public List<Course> findAllCourse(){
         return courseService.findAllCourse();
+    };
+    @GetMapping("/findCourseByUserId")
+    public List<Course> findCourseByUserId(int id){
+        return courseService.findCourseByUserId(id);
     };
 }

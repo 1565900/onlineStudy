@@ -1,5 +1,7 @@
 package com.zlt.onlineStudy.po;
 
+import java.util.List;
+
 public class User_course {
     private Integer userId;
 
@@ -50,5 +52,19 @@ public class User_course {
 
     public void setLeaCha(Integer leaCha) {
         this.leaCha = leaCha;
+    }
+
+
+
+    @Override
+    public String toString() {
+        return "User_course{" +
+                "userId=" + userId +
+                ", courseId=" + courseId +
+                ", scState=" + scState +
+                ", state=" + state +
+                ", leaCha=" + leaCha +
+                 +
+                '}';
     }
 }
