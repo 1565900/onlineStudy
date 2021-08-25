@@ -20,4 +20,6 @@ public interface ChaptersService {
     int updateByPrimaryKey(Chapters record);
 
     List<Chapters> findAllChapters();
+
+    List<Chapters> findChaptersByCourseId(Integer id);
 }

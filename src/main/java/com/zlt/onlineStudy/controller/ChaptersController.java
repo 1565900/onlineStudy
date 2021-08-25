@@ -50,5 +50,9 @@ public class ChaptersController {
     public List<Chapters> findAllChapters(){
         return chaptersService.findAllChapters();
     };
+    @GetMapping("/findChaptersByCourseId")
+    public List<Chapters> findChaptersByCourseId(Integer id){
+        return chaptersService.findChaptersByCourseId(id);
+    };
 
 }

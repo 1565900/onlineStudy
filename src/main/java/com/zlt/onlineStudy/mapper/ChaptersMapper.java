@@ -22,4 +22,6 @@ public interface ChaptersMapper {
     int updateByPrimaryKey(Chapters record);
 
     List<Chapters> findAllChapters();
+    //通过课程id查找对应章节
+    List<Chapters> findChaptersByCourseId(Integer id);
 }

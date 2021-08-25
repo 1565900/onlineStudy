@@ -42,4 +42,8 @@ public class CommentController {
     public List<Comment> findAllComment(){
         return commentService.findAllComment();
     };
+    @GetMapping("/findCommentByCourseId")
+    public List<Comment> findCommentByCourseId(Integer id){
+        return commentService.findCommentByCourseId(id);
+    };
 }

@@ -18,4 +18,10 @@ public interface CommentService {
     int updateByPrimaryKey(Comment record);
 
     List<Comment> findAllComment();
+
+    List<Comment> findCommentByCourseId(Integer id);
+
+
+
+
 }

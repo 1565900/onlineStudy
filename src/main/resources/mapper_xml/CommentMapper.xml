@@ -104,6 +104,11 @@
     where id = #{id,jdbcType=INTEGER}
   </update>
   <select id="findAllComment" resultMap="BaseResultMap">
- select * from comment where state!=0
+ select * from comment where state =0
 </select>
+  <select id="findCommentByCourseId" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+    select id, content, user_id, course_id, createtime, state
+    from comment
+    where course_id = #{id} and state = 0
+  </select>
 </mapper>

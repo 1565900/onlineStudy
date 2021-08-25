@@ -20,4 +20,6 @@ public interface CommentMapper {
     int updateByPrimaryKey(Comment record);
 
     List<Comment> findAllComment();
+
+    List<Comment> findCommentByCourseId(Integer id);
 }

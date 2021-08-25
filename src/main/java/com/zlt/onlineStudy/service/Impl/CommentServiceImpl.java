@@ -32,4 +32,8 @@ public class CommentServiceImpl implements CommentService {
     public List<Comment> findAllComment(){
         return commentMapper.findAllComment();
     };
+
+     public List<Comment> findCommentByCourseId(Integer id){
+         return commentMapper.findCommentByCourseId(id);
+     };
 }

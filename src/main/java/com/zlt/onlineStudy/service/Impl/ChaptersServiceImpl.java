@@ -42,4 +42,8 @@ public class ChaptersServiceImpl implements ChaptersService {
    public List<Chapters> findAllChapters(){
        return chaptersMapper.findAllChapters();
    };
+
+    public List<Chapters> findChaptersByCourseId(Integer id){
+        return chaptersMapper.findChaptersByCourseId(id);
+    };
 }

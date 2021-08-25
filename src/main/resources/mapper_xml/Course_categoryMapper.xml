@@ -80,6 +80,6 @@
     where id = #{id,jdbcType=INTEGER}
   </update>
   <select id="findAllCourse_category" resultMap="BaseResultMap">
- select * from course_category where state!=0
+ select * from course_category where state=0
 </select>
 </mapper>

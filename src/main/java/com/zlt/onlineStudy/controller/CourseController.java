@@ -47,4 +47,12 @@ public class CourseController {
     public List<Course> findCourseByUserId(Integer id){
         return courseService.findCourseByUserId(id);
     };
+    @GetMapping("findCheckCourseByUserId")
+    public List<Course> findCheckCourseByUserId(Integer id){
+        return courseService.findCheckCourseByUserId(id);
+    };
+    @GetMapping("indOwnCourseByUserId")
+    public List<Course> findOwnCourseByUserId(Integer id){
+        return courseService.findOwnCourseByUserId(id);
+    };
 }
