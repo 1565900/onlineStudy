@@ -21,5 +21,5 @@ public interface CourseMapper {
 
     List<Course> findAllCourse();
 
-    List<Course> findCourseByUserId(int id);
+    List<Course> findCourseByUserId(Integer id);
 }

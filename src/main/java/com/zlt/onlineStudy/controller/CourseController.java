@@ -44,7 +44,7 @@ public class CourseController {
         return courseService.findAllCourse();
     };
     @GetMapping("/findCourseByUserId")
-    public List<Course> findCourseByUserId(int id){
+    public List<Course> findCourseByUserId(Integer id){
         return courseService.findCourseByUserId(id);
     };
 }

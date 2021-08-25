@@ -45,7 +45,7 @@ public class CourseServiceImpl implements CourseService {
         return courseMapper.findAllCourse();
     };
 
-    public List<Course> findCourseByUserId(int id){
+    public List<Course> findCourseByUserId(Integer id){
         return courseMapper.findCourseByUserId(id);
     };
 }
