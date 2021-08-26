@@ -28,7 +28,7 @@ public interface CourseService {
 
     List<Course> findOwnCourseByUserId(Integer id);
 
-
+    List<Course> findCourseByLei(Integer id);
 
 
 }

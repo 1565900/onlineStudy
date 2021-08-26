@@ -25,6 +25,11 @@ public class CourseController {
     };
     @GetMapping("/insertSelective")
     public int insertSelective(Course record){
+        if(record.getImg()!=null) {
+            String url = record.getImg();
+            String imageName = url.substring(url.lastIndexOf("/") + 1, url.length());
+            record.setImg(imageName);
+        }
         return courseService.insertSelective(record);
     };
     @GetMapping("/selectByPrimaryKey")
@@ -33,6 +38,12 @@ public class CourseController {
     };
     @GetMapping("/updateByPrimaryKeySelective")
     public int updateByPrimaryKeySelective(Course record){
+        if(record.getImg()!=null) {
+            String url = record.getImg();
+            String imageName = url.substring(url.lastIndexOf("\\") + 1, url.length());
+            record.setImg(imageName);
+        }
+        System.out.println(record.getImg());
         return courseService.updateByPrimaryKeySelective(record);
     };
     @PutMapping("/updateByPrimaryKey")

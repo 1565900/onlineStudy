@@ -24,6 +24,12 @@
     from suser
     where id = #{id,jdbcType=INTEGER}
   </select>
+  <select id="selectByAccount" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from suser
+    where account = #{account,jdbcType=INTEGER}
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from suser
     where id = #{id,jdbcType=INTEGER}

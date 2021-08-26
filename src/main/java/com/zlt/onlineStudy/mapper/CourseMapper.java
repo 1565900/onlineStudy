@@ -26,4 +26,6 @@ public interface CourseMapper {
     List<Course> findCheckCourseByUserId(Integer id);
     //通过用户id找用户自己上传通过审核的课程
     List<Course> findOwnCourseByUserId(Integer id);
+
+    List<Course> findCourseByLei(Integer id);
 }

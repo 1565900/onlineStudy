@@ -20,4 +20,6 @@ public interface UserService {
     int updateByPrimaryKey(User record);
 
     List<User> findAllUser();
+
+    User selectByAccount(String account);
 }

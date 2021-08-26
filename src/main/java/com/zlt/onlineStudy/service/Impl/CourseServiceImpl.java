@@ -56,4 +56,9 @@ public class CourseServiceImpl implements CourseService {
     public List<Course> findOwnCourseByUserId(Integer id){
         return courseMapper.findOwnCourseByUserId(id);
     };
+
+    @Override
+    public List<Course> findCourseByLei(Integer id) {
+        return courseMapper.findCourseByLei(id);
+    }
 }
