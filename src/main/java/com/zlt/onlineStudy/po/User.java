@@ -11,7 +11,7 @@ public class User {
 
     private String sex;
 
-    private String userSignature;
+    private String user_signature;
 
     private String turename;
 
@@ -65,11 +65,11 @@ public class User {
     }
 
     public String getUserSignature() {
-        return userSignature;
+        return user_signature;
     }
 
     public void setUserSignature(String userSignature) {
-        this.userSignature = userSignature == null ? null : userSignature.trim();
+        this.user_signature = userSignature == null ? null : userSignature.trim();
     }
 
     public String getTurename() {

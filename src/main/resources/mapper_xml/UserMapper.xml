@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.zlt.onlineStudy.mapper.UserMapper">
   <resultMap id="BaseResultMap" type="com.zlt.onlineStudy.po.User">
-    <result column="id" jdbcType="INTEGER" property="id" />
+    <id column="id" jdbcType="INTEGER" property="id" />
     <result column="account" jdbcType="VARCHAR" property="account" />
     <result column="password" jdbcType="VARCHAR" property="password" />
     <result column="nikename" jdbcType="VARCHAR" property="nikename" />
@@ -15,28 +15,31 @@
     <result column="state" jdbcType="INTEGER" property="state" />
   </resultMap>
   <sql id="Base_Column_List">
-    id, account, password, nikename, sex, user_signature,turename,email,phone,avatar,state
+    id, account, password, nikename, sex, user_signature, turename, email, phone, avatar,
+    state
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List" />
-    from user
+    from suser
     where id = #{id,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from user
+    delete from suser
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.zlt.onlineStudy.po.User">
-    insert into user (id, account, password, nikename, sex, user_signature,turename,email,phone,avatar,state
-      )
-    values (#{id,jdbcType=INTEGER}, #{account,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR},#{nikename,jdbcType=VARCHAR},
-    #{sex,jdbcType=VARCHAR},#{user_signature,jdbcType=VARCHAR},#{turename,jdbcType=VARCHAR},#{email,jdbcType=VARCHAR},#{phone,jdbcType=VARCHAR},
-    #{avatar,jdbcType=INTEGER}, #{state,jdbcType=INTEGER}
-      )
+    insert into suser (id, account, password,
+      nikename, sex, user_signature,
+      turename, email, phone,
+      avatar, state)
+    values (#{id,jdbcType=INTEGER}, #{account,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR},
+      #{nikename,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR}, #{user_signature,jdbcType=VARCHAR},
+      #{turename,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR},
+      #{avatar,jdbcType=VARCHAR}, #{state,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.zlt.onlineStudy.po.User">
-    insert into user
+    insert into suser
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
         id,
@@ -53,7 +56,7 @@
       <if test="sex != null">
         sex,
       </if>
-      <if test="user_signature != null">
+      <if test="userSignature != null">
         user_signature,
       </if>
       <if test="turename != null">
@@ -101,7 +104,7 @@
         #{phone,jdbcType=VARCHAR},
       </if>
       <if test="avatar != null">
-        #{avatar,jdbcType=INTEGER},
+        #{avatar,jdbcType=VARCHAR},
       </if>
       <if test="state != null">
         #{state,jdbcType=INTEGER},
@@ -109,7 +112,7 @@
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.zlt.onlineStudy.po.User">
-    update user
+    update suser
     <set>
       <if test="account != null">
         account = #{account,jdbcType=VARCHAR},
@@ -145,31 +148,20 @@
     where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.zlt.onlineStudy.po.User">
-    update user
-    set
-      account = #{account,jdbcType=VARCHAR},
-
+    update suser
+    set account = #{account,jdbcType=VARCHAR},
       password = #{password,jdbcType=VARCHAR},
-
       nikename = #{nikename,jdbcType=VARCHAR},
-
       sex = #{sex,jdbcType=VARCHAR},
-
-      user_signature = #{user_signature,jdbcType=VARCHAR},
-
+      user_signature = #{userSignature,jdbcType=VARCHAR},
       turename = #{turename,jdbcType=VARCHAR},
-
       email = #{email,jdbcType=VARCHAR},
-
       phone = #{phone,jdbcType=VARCHAR},
-
       avatar = #{avatar,jdbcType=VARCHAR},
-
-    state = #{state,jdbcType=INTEGER},
+      state = #{state,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
-
   <select id="findAllUser" resultMap="BaseResultMap">
-    SELECT * FROM user
+    SELECT * FROM suser
   </select>
 </mapper>

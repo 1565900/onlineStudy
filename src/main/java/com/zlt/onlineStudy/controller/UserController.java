@@ -16,7 +16,7 @@ import java.util.List;
 @RequestMapping("/User")
 @CrossOrigin
 public class UserController {
-    //@Autowired
+    @Autowired
     private UserService userService;
     @GetMapping("/deleteByPrimaryKey")
     public int deleteByPrimaryKey(Integer id){
@@ -33,7 +33,8 @@ public class UserController {
     };
     @GetMapping("/insertSelective")
     public int insertSelective(User record){
-        return userService.insertSelective(record);
+         userService.insertSelective(record);
+         return 0;
     };
     @GetMapping("/selectByPrimaryKey")
     public List<User> selectByPrimaryKey(Integer id){
@@ -50,5 +51,5 @@ public class UserController {
     @GetMapping("/findAllUser")
     public List<User> findAllUser(){
         return userService.findAllUser();
-    };
+    }
 }
