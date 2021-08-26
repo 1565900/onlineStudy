@@ -28,7 +28,7 @@ private Course_categoryMapper course_categoryMapper;
         return course_categoryMapper.insertSelective(record);
     };
 
-    public Course_category selectByPrimaryKey(Integer id){
+    public List<Course_category> selectByPrimaryKey(Integer id){
         return course_categoryMapper.selectByPrimaryKey(id);
     };
 

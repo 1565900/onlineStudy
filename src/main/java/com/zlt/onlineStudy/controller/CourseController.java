@@ -15,7 +15,7 @@ public class CourseController {
 
     @Autowired
     private CourseService courseService;
-    @DeleteMapping("/deleteByPrimaryKey")
+    @GetMapping("/deleteByPrimaryKey")
     public int deleteByPrimaryKey(Integer id){
         return courseService.deleteByPrimaryKey(id);
     };
@@ -23,15 +23,15 @@ public class CourseController {
     public int insert(Course record){
         return courseService.insert(record);
     };
-    @PostMapping("/insertSelective")
+    @GetMapping("/insertSelective")
     public int insertSelective(Course record){
         return courseService.insertSelective(record);
     };
     @GetMapping("/selectByPrimaryKey")
-    public Course selectByPrimaryKey(Integer id){
+    public List<Course> selectByPrimaryKey(Integer id){
         return courseService.selectByPrimaryKey(id);
     };
-    @PatchMapping("/updateByPrimaryKeySelective")
+    @GetMapping("/updateByPrimaryKeySelective")
     public int updateByPrimaryKeySelective(Course record){
         return courseService.updateByPrimaryKeySelective(record);
     };

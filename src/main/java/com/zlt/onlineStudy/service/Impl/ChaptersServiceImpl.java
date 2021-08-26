@@ -26,7 +26,7 @@ public class ChaptersServiceImpl implements ChaptersService {
         return chaptersMapper.insertSelective(record);
     };
 
-    public Chapters selectByPrimaryKey(Integer id){
+    public List<Chapters> selectByPrimaryKey(Integer id){
         return chaptersMapper.selectByPrimaryKey(id);
     };
 

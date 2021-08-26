@@ -44,4 +44,7 @@
       </if>
     </trim>
   </insert>
+  <select id="findAllTestpaper_detailed" resultMap="BaseResultMap">
+    SELECT * FROM tsetpaper_detailed
+  </select>
 </mapper>

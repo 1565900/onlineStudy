@@ -1,7 +1,10 @@
 package com.zlt.onlineStudy.mapper;
 
 import com.zlt.onlineStudy.po.Testpaper;
+import org.apache.ibatis.annotations.Mapper;
 
+import java.util.List;
+@Mapper
 public interface TestpaperMapper {
     int deleteByPrimaryKey(Integer id);
 
@@ -9,9 +12,11 @@ public interface TestpaperMapper {
 
     int insertSelective(Testpaper record);
 
-    Testpaper selectByPrimaryKey(Integer id);
+    List<Testpaper> selectByPrimaryKey(Integer id);
 
     int updateByPrimaryKeySelective(Testpaper record);
 
     int updateByPrimaryKey(Testpaper record);
+
+    List<Testpaper> findAllTestpaper();
 }

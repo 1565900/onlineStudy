@@ -13,7 +13,7 @@ public interface Course_categoryMapper {
 
     int insertSelective(Course_category record);
 
-    Course_category selectByPrimaryKey(Integer id);
+    List<Course_category> selectByPrimaryKey(Integer id);
 
     int updateByPrimaryKeySelective(Course_category record);
 

@@ -11,7 +11,7 @@ public interface TestpaperService {
 
     int insertSelective(Testpaper record);
 
-    Testpaper selectByPrimaryKey(Integer id);
+    List<Testpaper> selectByPrimaryKey(Integer id);
 
     int updateByPrimaryKeySelective(Testpaper record);
 

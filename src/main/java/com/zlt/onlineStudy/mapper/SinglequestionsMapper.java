@@ -1,6 +1,8 @@
 package com.zlt.onlineStudy.mapper;
 
 import com.zlt.onlineStudy.po.Singlequestions;
+import org.apache.ibatis.annotations.Mapper;
+
 
 public interface SinglequestionsMapper {
     int deleteByPrimaryKey(Integer id);

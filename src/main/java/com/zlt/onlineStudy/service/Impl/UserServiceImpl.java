@@ -27,7 +27,7 @@ public class UserServiceImpl implements UserService {
         return userMapper.insertSelective(record);
     };
 
-    public User selectByPrimaryKey(Integer id){
+    public List<User> selectByPrimaryKey(Integer id){
         return userMapper.selectByPrimaryKey(id);
     };
 

@@ -17,7 +17,7 @@ public class ChaptersController {
 
     @Autowired
      private ChaptersService chaptersService;
-    @DeleteMapping("/deleteByPrimaryKey")
+    @GetMapping("/deleteByPrimaryKey")
     public int deleteByPrimaryKey(Integer id){
         if(id!=null){
             return chaptersService.deleteByPrimaryKey(id);}
@@ -30,15 +30,15 @@ public class ChaptersController {
     public int insert(Chapters record){
         return chaptersService.insert(record);
     };
-    @PostMapping("/insertSelective")
+    @GetMapping("/insertSelective")
     public int insertSelective(Chapters record){
         return chaptersService.insertSelective(record);
     };
     @GetMapping("/selectByPrimaryKey")
-    public Chapters selectByPrimaryKey(Integer id){
+    public List<Chapters> selectByPrimaryKey(Integer id){
         return chaptersService.selectByPrimaryKey(id);
     }
-    @PatchMapping("/updateByPrimaryKeySelective")//当部分属性为空时，则不修改；
+    @GetMapping("/updateByPrimaryKeySelective")//当部分属性为空时，则不修改；
     public int updateByPrimaryKeySelective(Chapters record){
         return chaptersService.updateByPrimaryKeySelective(record);
     };

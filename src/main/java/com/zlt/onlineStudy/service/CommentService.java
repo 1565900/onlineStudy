@@ -11,7 +11,7 @@ public interface CommentService {
 
     int insertSelective(Comment record);
 
-    Comment selectByPrimaryKey(Integer id);
+    List<Comment> selectByPrimaryKey(Integer id);
 
     int updateByPrimaryKeySelective(Comment record);
 

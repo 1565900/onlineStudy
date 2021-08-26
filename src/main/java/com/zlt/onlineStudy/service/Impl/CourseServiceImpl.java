@@ -29,7 +29,7 @@ public class CourseServiceImpl implements CourseService {
         return courseMapper.insertSelective(record);
     };
 
-    public Course selectByPrimaryKey(Integer id){
+    public List<Course> selectByPrimaryKey(Integer id){
         return courseMapper.selectByPrimaryKey(id);
     };
 

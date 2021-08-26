@@ -13,7 +13,7 @@ public interface UserService {
 
     int insertSelective(User record);
 
-    User selectByPrimaryKey(Integer id);
+    List<User> selectByPrimaryKey(Integer id);
 
     int updateByPrimaryKeySelective(User record);
 

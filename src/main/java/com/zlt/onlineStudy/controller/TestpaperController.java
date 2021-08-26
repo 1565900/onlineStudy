@@ -19,7 +19,7 @@ public class TestpaperController {
     private TestpaperService testpaperService;
     private Testpaper_detailedService testpaper_detailedService;
 
-    @DeleteMapping("/deleteByPrimaryKey")
+    @GetMapping("/deleteByPrimaryKey")
     public int deleteByPrimaryKey(Integer id){
         if(id!=null){
             return testpaperService.deleteByPrimaryKey(id);}
@@ -32,15 +32,15 @@ public class TestpaperController {
     public int insert(Testpaper record){
         return testpaperService.insert(record);
     };
-    @PostMapping("/insertSelective")
+    @GetMapping("/insertSelective")
     public int insertSelective(Testpaper record){
         return testpaperService.insertSelective(record);
     };
     @GetMapping("/selectByPrimaryKey")
-    public Testpaper selectByPrimaryKey(Integer id){
+    public List<Testpaper> selectByPrimaryKey(Integer id){
         return testpaperService.selectByPrimaryKey(id);
     }
-    @PatchMapping("/updateByPrimaryKeySelective")//当部分属性为空时，则不修改；
+    @GetMapping("/updateByPrimaryKeySelective")//当部分属性为空时，则不修改；
     public int updateByPrimaryKeySelective(Testpaper record){
         return testpaperService.updateByPrimaryKeySelective(record);
     };
@@ -48,7 +48,7 @@ public class TestpaperController {
     public int updateByPrimaryKey(Testpaper record){
         return testpaperService.updateByPrimaryKey(record);
     };
-    @GetMapping("/findAllUser")
+    @GetMapping("/findAllTestpaper")
     public List<Testpaper> findAllTestpaper(){
         return testpaperService.findAllTestpaper();
     };

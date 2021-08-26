@@ -14,7 +14,7 @@ public interface CourseService {
 
     int insertSelective(Course record);
 
-    Course selectByPrimaryKey(Integer id);
+    List<Course> selectByPrimaryKey(Integer id);
 
     int updateByPrimaryKeySelective(Course record);
 

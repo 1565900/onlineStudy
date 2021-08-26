@@ -10,7 +10,7 @@ public interface ExamService {
 
     int insertSelective(Exam record);
 
-    Exam selectByPrimaryKey(Integer id);
+    List<Exam> selectByPrimaryKey(Integer id);
 
     int updateByPrimaryKeySelective(Exam record);
 

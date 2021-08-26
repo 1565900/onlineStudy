@@ -18,7 +18,7 @@ import java.util.List;
 public class UserController {
     //@Autowired
     private UserService userService;
-    @DeleteMapping("/deleteByPrimaryKey")
+    @GetMapping("/deleteByPrimaryKey")
     public int deleteByPrimaryKey(Integer id){
         if(id!=null){
             return userService.deleteByPrimaryKey(id);}
@@ -31,15 +31,15 @@ public class UserController {
     public int insert(User record){
         return userService.insert(record);
     };
-    @PostMapping("/insertSelective")
+    @GetMapping("/insertSelective")
     public int insertSelective(User record){
         return userService.insertSelective(record);
     };
     @GetMapping("/selectByPrimaryKey")
-    public User selectByPrimaryKey(Integer id){
+    public List<User> selectByPrimaryKey(Integer id){
         return userService.selectByPrimaryKey(id);
     }
-    @PatchMapping("/updateByPrimaryKeySelective")//当部分属性为空时，则不修改；
+    @GetMapping("/updateByPrimaryKeySelective")//当部分属性为空时，则不修改；
     public int updateByPrimaryKeySelective(User record){
         return userService.updateByPrimaryKeySelective(record);
     };

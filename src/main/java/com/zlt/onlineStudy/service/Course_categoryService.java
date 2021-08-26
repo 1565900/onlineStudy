@@ -12,7 +12,7 @@ public interface Course_categoryService {
 
     int insertSelective(Course_category record);
 
-    Course_category selectByPrimaryKey(Integer id);
+    List<Course_category> selectByPrimaryKey(Integer id);
 
     int updateByPrimaryKeySelective(Course_category record);
 

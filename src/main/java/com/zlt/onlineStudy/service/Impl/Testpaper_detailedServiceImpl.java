@@ -25,6 +25,6 @@ public class Testpaper_detailedServiceImpl  implements Testpaper_detailedService
     };
 
     public List<Testpaper_detailed> findAllTestpaper_detailed(){
-        return testpaper_detailedMapper.findAlltestpaper_detailed();
+        return testpaper_detailedMapper.findAllTestpaper_detailed();
     };
 }

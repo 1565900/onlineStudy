@@ -15,7 +15,7 @@ import java.util.List;
 public class ExamController {
     @Autowired
     private ExamService examService;
-    @DeleteMapping("/deleteByPrimaryKey")
+    @GetMapping("/deleteByPrimaryKey")
     public int deleteByPrimaryKey(Integer id){
         if(id!=null){
             return examService.deleteByPrimaryKey(id);}
@@ -28,15 +28,15 @@ public class ExamController {
     public int insert(Exam record){
         return examService.insert(record);
     };
-    @PostMapping("/insertSelective")
+    @GetMapping("/insertSelective")
     public int insertSelective(Exam record){
         return examService.insertSelective(record);
     };
     @GetMapping("/selectByPrimaryKey")
-    public Exam selectByPrimaryKey(Integer id){
+    public List<Exam> selectByPrimaryKey(Integer id){
         return examService.selectByPrimaryKey(id);
     }
-    @PatchMapping("/updateByPrimaryKeySelective")//当部分属性为空时，则不修改；
+    @GetMapping("/updateByPrimaryKeySelective")//当部分属性为空时，则不修改；
     public int updateByPrimaryKeySelective(Exam record){
         return examService.updateByPrimaryKeySelective(record);
     };
@@ -44,7 +44,7 @@ public class ExamController {
     public int updateByPrimaryKey(Exam record){
         return examService.updateByPrimaryKey(record);
     };
-    @GetMapping("/findAllUser")
+    @GetMapping("/findAllExam")
     public List<Exam> findAllExam(){
         return examService.findAllExam();
     };

@@ -27,7 +27,7 @@ public class TestpaperServiceImpl implements TestpaperService {
         return testpaperMapper.insertSelective(record);
     };
 
-    public Testpaper selectByPrimaryKey(Integer id){
+    public List<Testpaper> selectByPrimaryKey(Integer id){
         return testpaperMapper.selectByPrimaryKey(id);
     };
 

@@ -13,7 +13,7 @@ public interface ChaptersService {
 
     int insertSelective(Chapters record);
 
-    Chapters selectByPrimaryKey(Integer id);
+    List<Chapters> selectByPrimaryKey(Integer id);
 
     int updateByPrimaryKeySelective(Chapters record);
 

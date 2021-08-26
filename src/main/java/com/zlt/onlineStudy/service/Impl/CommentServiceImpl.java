@@ -24,7 +24,7 @@ public class CommentServiceImpl implements CommentService {
 
     public int insertSelective(Comment record){return commentMapper.insertSelective(record);};
 
-    public Comment selectByPrimaryKey(Integer id){return commentMapper.selectByPrimaryKey(id);};
+    public List<Comment> selectByPrimaryKey(Integer id){return commentMapper.selectByPrimaryKey(id);};
     public int updateByPrimaryKeySelective(Comment record){return commentMapper.updateByPrimaryKeySelective(record);};
 
     public int updateByPrimaryKey(Comment record){return commentMapper.updateByPrimaryKey(record);};

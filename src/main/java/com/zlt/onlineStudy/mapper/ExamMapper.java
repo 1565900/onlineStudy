@@ -1,7 +1,10 @@
 package com.zlt.onlineStudy.mapper;
 
 import com.zlt.onlineStudy.po.Exam;
+import org.apache.ibatis.annotations.Mapper;
 
+import java.util.List;
+@Mapper
 public interface ExamMapper {
     int deleteByPrimaryKey(Integer id);
 
@@ -9,9 +12,11 @@ public interface ExamMapper {
 
     int insertSelective(Exam record);
 
-    Exam selectByPrimaryKey(Integer id);
+    List<Exam> selectByPrimaryKey(Integer id);
 
     int updateByPrimaryKeySelective(Exam record);
 
     int updateByPrimaryKey(Exam record);
+
+    List<Exam> findAllExam();
 }

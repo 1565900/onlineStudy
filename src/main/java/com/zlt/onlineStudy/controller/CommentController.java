@@ -14,7 +14,7 @@ import java.util.List;
 public class CommentController {
     @Autowired
     private CommentService commentService;
-    @DeleteMapping("/deleteByPrimaryKey")
+    @GetMapping("/deleteByPrimaryKey")
     public int deleteByPrimaryKey(Integer id){
         return commentService.deleteByPrimaryKey(id);
     };
@@ -22,15 +22,15 @@ public class CommentController {
     public int insert(Comment record){
         return commentService.insert(record);
     };
-    @PostMapping("/insertSelective")
+    @GetMapping("/insertSelective")
     public int insertSelective(Comment record){
         return commentService.insertSelective(record);
     };
     @GetMapping("/selectByPrimaryKey")
-    public Comment selectByPrimaryKey(Integer id){
+    public List<Comment> selectByPrimaryKey(Integer id){
         return commentService.selectByPrimaryKey(id);
     };
-    @PatchMapping("/updateByPrimaryKeySelective")
+    @GetMapping("/updateByPrimaryKeySelective")
     public int updateByPrimaryKeySelective(Comment record){
         return commentService.updateByPrimaryKeySelective(record);
     };

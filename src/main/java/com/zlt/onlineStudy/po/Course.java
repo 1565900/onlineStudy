@@ -1,5 +1,7 @@
 package com.zlt.onlineStudy.po;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -19,9 +21,9 @@ public class Course {
     private String chargingmode;
 
     private BigDecimal price;
-
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date createtime;
-
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date endtime;
 
     private String img;
