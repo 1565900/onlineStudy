@@ -61,4 +61,15 @@ public class UserLoginController {
         model.addAttribute("course",courses);
         return "course/courseLei.html";
     }
+    //名字找course
+    @GetMapping("searchByName")
+    public String searchByName(String condition, Model model){
+        String sql = "select * from course where state=0";
+        sql += " and name like '%" + condition +"%' ";
+        model.addAttribute("condition",condition);
+        List<Course> list=courseService.findBySqlReturnEntity(sql);
+        model.addAttribute("obj",list);
+        return "";
+    }
+
 }

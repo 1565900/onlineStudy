@@ -61,4 +61,7 @@ public class CourseServiceImpl implements CourseService {
     public List<Course> findCourseByLei(Integer id) {
         return courseMapper.findCourseByLei(id);
     }
+    public List<Course> findBySqlReturnEntity(String sql){
+        return courseMapper.findBySqlReturnEntity(sql);
+    }
 }

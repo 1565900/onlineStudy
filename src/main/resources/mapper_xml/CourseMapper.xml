@@ -180,4 +180,7 @@
    select id, name, category_id, course.state, introduce, teacher, chargingmode, price, createtime,
     endtime, img from course  where category_id=#{categoryId,jdbcType=INTEGER}
  </select>
+  <select id="findBySqlReturnEntity" resultMap="BaseResultMap">
+        ${sql}
+    </select>
 </mapper>

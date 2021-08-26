@@ -28,4 +28,6 @@ public interface CourseMapper {
     List<Course> findOwnCourseByUserId(Integer id);
 
     List<Course> findCourseByLei(Integer id);
+
+    List<Course> findBySqlReturnEntity(String sql);
 }
