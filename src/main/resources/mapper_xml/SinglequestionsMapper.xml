@@ -143,5 +143,11 @@
       trueANS = #{trueans,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
+  <select id="findQuestionByCourse_id" resultMap="BaseResultMap">
+    SELECT *
+    FROM singlequestions
+    where course_id = #{courseId,jdbcType=INTEGER}
+  </select>
+
 
 </mapper>

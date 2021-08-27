@@ -12,11 +12,17 @@
   <sql id="Base_Column_List">
     id, course_name, course_id, exam_time, exam_dru, state
   </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+  <select id="selectByCourse_id" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from exam
-    where id = #{id,jdbcType=INTEGER}
+    where (id = #{id,jdbcType=INTEGER} and state = 0) or (id = #{id,jdbcType=INTEGER} and state = 1)
+  </select>
+  <select id="exselectByCourse_id" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from exam
+    where id = #{id,jdbcType=INTEGER} and state = 2
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from exam
