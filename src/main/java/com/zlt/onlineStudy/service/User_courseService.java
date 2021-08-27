@@ -4,6 +4,7 @@ import com.zlt.onlineStudy.mapper.User_courseMapper;
 import com.zlt.onlineStudy.po.User_course;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 public interface User_courseService {
      //修改用户上次学到的章节
@@ -12,6 +13,8 @@ public interface User_courseService {
      int insertJoinCourse(int userId,int courseId);
      //用户上传课程
      int insertUploadCourse(int userId,int courseId);
+
+     List<User_course> selectUsersById(int id);
 
 }
 
