@@ -166,7 +166,7 @@
   </select>
  <select id="findCourseByUserId" resultMap="BaseResultMap" parameterType="java.lang.Integer">
    select id, name, category_id, course.state, introduce, teacher, chargingmode, price, createtime,
-    endtime, img from course ,user_course where user_course.user_id= #{id} and user_course.course_id = course.id and course.state = 0 and user_course.state=1
+    endtime, img from course ,user_course where user_course.user_id= #{id} and user_course.course_id = course.id and course.state = 1 and user_course.state=1
     </select>
   <select id="findCheckCourseByUserId" resultMap="BaseResultMap" parameterType="java.lang.Integer">
    select id, name, category_id, course.state, introduce, teacher, chargingmode, price, createtime,
@@ -174,7 +174,7 @@
  </select>
   <select id="findOwnCourseByUserId" resultMap="BaseResultMap" parameterType="java.lang.Integer">
    select id, name, category_id, course.state, introduce, teacher, chargingmode, price, createtime,
-    endtime, img from course ,user_course where user_course.user_id= #{id} and user_course.course_id = course.id and course.state = 0 and user_course.state =1
+    endtime, img from course ,user_course where user_course.user_id= #{id} and user_course.course_id = course.id and course.state = 1 and user_course.state =2
  </select>
   <select id="findCourseByLei" resultMap="BaseResultMap" parameterType="java.lang.Integer">
    select id, name, category_id, course.state, introduce, teacher, chargingmode, price, createtime,

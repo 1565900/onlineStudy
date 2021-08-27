@@ -23,5 +23,5 @@ public interface ChaptersMapper {
 
     List<Chapters> findAllChapters();
     //通过课程id查找对应章节
-    List<Chapters> findChaptersByCourseId(Integer id);
+    List<Chapters> findChaptersByCourseId(Integer courseId);
 }

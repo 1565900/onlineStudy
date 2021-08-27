@@ -51,4 +51,19 @@
       </if>
     </trim>
   </insert>
+  <update id="updateSelective" parameterType="com.zlt.onlineStudy.po.User_course">
+    update user_course
+    <set>
+      <if test="scState != null">
+        sc_State= #{scState,jdbcType=INTEGER},
+      </if>
+      <if test="state != null">
+        state=  #{state,jdbcType=INTEGER},
+      </if>
+      <if test="leaCha != null">
+        lea_Cha = #{leaCha,jdbcType=INTEGER},
+      </if>
+    </set>
+    where user_id =#{userId,jdbcType=INTEGER} and course_id = #{courseId,jdbcType=INTEGER}
+  </update>
 </mapper>

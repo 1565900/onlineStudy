@@ -5,14 +5,16 @@ import com.zlt.onlineStudy.po.User;
 
 import com.zlt.onlineStudy.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
-@RestController
+@Controller
 @RequestMapping("/User")
 @CrossOrigin
 public class UserController {
@@ -41,8 +43,12 @@ public class UserController {
         return userService.selectByPrimaryKey(id);
     }
     @GetMapping("/updateByPrimaryKeySelective")//当部分属性为空时，则不修改；
-    public int updateByPrimaryKeySelective(User record){
-        return userService.updateByPrimaryKeySelective(record);
+    public String updateByPrimaryKeySelective(HttpServletRequest request,User record){
+        int id=(int)request.getSession().getAttribute("USERID");
+        User user=record;
+        user.setId(id);
+        userService.updateByPrimaryKeySelective(user);
+        return "redirect:/gerenshezhi;";
     };
     @PutMapping("/updateByPrimaryKey")//当实体某属性为空是，则将对应列置空；
     public int updateByPrimaryKey(User record){

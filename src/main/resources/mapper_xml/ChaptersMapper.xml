@@ -94,6 +94,6 @@
  select * from chapters
 </select>
   <select id="findChaptersByCourseId" resultMap="BaseResultMap" parameterType="java.lang.Integer">
- select * from chapters where course_id =#{id} and count != null
+ select * from chapters where course_id =#{courseId,jdbcType=INTEGER} order by count
 </select>
 </mapper>
