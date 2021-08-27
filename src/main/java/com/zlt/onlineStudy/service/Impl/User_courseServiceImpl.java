@@ -6,6 +6,8 @@ import com.zlt.onlineStudy.service.User_courseService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
+
 @Service
 public class User_courseServiceImpl implements User_courseService {
     @Resource
@@ -34,6 +36,10 @@ public class User_courseServiceImpl implements User_courseService {
         user_course.setState(0);
         user_course.setLeaCha(0);
         return user_courseMapper.insert(user_course);
+    };
+
+    public List<User_course> selectUsersById(int id){
+        return user_courseMapper.selectUsersById(id);
     };
 
 }

@@ -25,9 +25,11 @@ public class ExamServiceImpl implements ExamService {
         return examMapper.insertSelective(record);
     };
 
-    public List<Exam> selectByPrimaryKey(Integer id){
-        return examMapper.selectByPrimaryKey(id);
+    public List<Exam> selectByCourse_id(Integer id){
+        return examMapper.selectByCourse_id(id);
     };
+
+    public List<Exam> exselectByCourse_id(Integer id){ return examMapper.exselectByCourse_id(id);};
 
     public int updateByPrimaryKeySelective(Exam record){
         return examMapper.updateByPrimaryKeySelective(record);
