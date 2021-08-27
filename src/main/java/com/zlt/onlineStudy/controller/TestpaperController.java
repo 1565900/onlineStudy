@@ -2,13 +2,17 @@ package com.zlt.onlineStudy.controller;
 
 
 import com.zlt.onlineStudy.po.Exam;
+import com.zlt.onlineStudy.po.Singlequestions;
 import com.zlt.onlineStudy.po.Testpaper;
 import com.zlt.onlineStudy.po.Testpaper_detailed;
+import com.zlt.onlineStudy.service.SinglequestionsService;
 import com.zlt.onlineStudy.service.TestpaperService;
 import com.zlt.onlineStudy.service.Testpaper_detailedService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.lang.reflect.Array;
+import java.util.LinkedList;
 import java.util.List;
 
 @RestController
@@ -18,6 +22,8 @@ public class TestpaperController {
     @Autowired
     private TestpaperService testpaperService;
     private Testpaper_detailedService testpaper_detailedService;
+    private Testpaper_detailed testpaper_detailed;
+    private SinglequestionsService singlequestionsService;
 
     @GetMapping("/deleteByPrimaryKey")
     public int deleteByPrimaryKey(Integer id){
@@ -29,8 +35,23 @@ public class TestpaperController {
         }
     };
     @PostMapping("/insert")
-    public int insert(Testpaper record){
-        return testpaperService.insert(record);
+    public void insert(Testpaper record){
+        testpaperService.insert(record);
+        List<Singlequestions> sqs = singlequestionsService.findQuestionByCourse_id(record.getCourseId());
+        int[] question_id = new int[sqs.size()];
+        int a = 0;
+        int b = 0;
+        for(Singlequestions s : sqs){
+            question_id[a]=s.getId();
+            a++;
+        }
+        for(int i = 0 ; i <10 ; i++) {
+            b = (int) (Math.random()*a);
+            testpaper_detailed.setQuesId(question_id[b]);
+            testpaper_detailed.setTestpaperId(record.getId());
+            testpaper_detailed.setTureAns(singlequestionsService.selectByPrimaryKey(question_id[b]).getTrueans());
+            testpaper_detailedService.insert(testpaper_detailed);
+        }
     };
     @GetMapping("/insertSelective")
     public int insertSelective(Testpaper record){

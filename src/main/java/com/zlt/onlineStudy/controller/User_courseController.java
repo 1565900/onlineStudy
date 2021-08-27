@@ -34,4 +34,5 @@ public class User_courseController {
         return "user/myCourse.html";
     };
 
+
 }
