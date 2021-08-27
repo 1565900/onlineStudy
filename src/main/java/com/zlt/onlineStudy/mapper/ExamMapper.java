@@ -12,7 +12,9 @@ public interface ExamMapper {
 
     int insertSelective(Exam record);
 
-    List<Exam> selectByPrimaryKey(Integer id);
+    List<Exam> selectByCourse_id(Integer id);
+
+    List<Exam> exselectByCourse_id(Integer id);
 
     int updateByPrimaryKeySelective(Exam record);
 
